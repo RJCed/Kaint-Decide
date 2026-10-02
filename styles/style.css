@@ -1,16 +1,17 @@
 /* ------------------FONTS------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
 
 /* ------------------HEADER------------------------ */
 header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 110px;
+    height: 105px;
     
     background-image: linear-gradient(to right, #FFF1E8 10%, #FFD8C2 30%);
-    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.25);
 
     padding-right: 100px;
     padding-left: 100px;
@@ -27,7 +28,7 @@ header {
 
 #header-left h1{
     font-family: "Hanalei Fill";
-    font-size: 50px;
+    font-size: 55px;
     color: #D97852;
     -webkit-text-stroke: 1px #FFF1E7; 
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
@@ -47,7 +48,7 @@ header {
     top: 17px;
     right: 112px;
 
-    width: 556px;
+    width: 600px;
     height: 65px;
 
     background: #fff;
@@ -81,6 +82,96 @@ header {
     color: #888;
 }
 
-#sidebar-btn{
+#sidebar-btn {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+
+/* ------------------HERO------------------------- */
+#hero {
+    min-height: 310px;
+    max-height: 310px;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center 15%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-family: "Hanalei Fill";
+    color: #A94F24;
+    -webkit-text-stroke: 1.5px #FFE5D5; 
+    text-shadow: 0 4px 5px rgba(169, 79, 36, 0.75);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+
+    padding: 100px;
+    gap: 25px;
+
+}
+
+#hero h1 {
+    font-size: 104px;
+}
+
+#hero p {
+    -webkit-text-stroke: 1px #FFE5D5; 
+    font-size: 25px;
+}
+
+
+/* ___________________LABEL TEXT_____________________ */
+
+.label-text{
+    display: flex;
+    justify-content: space-between;
+    color: #A45627;
+    font-size: 24px;
+    padding: 100px;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.label-text h2 {
+    font-family: "Rammetto One", sans-serif;
+}
+
+.label-text p {
+    font-family: "Darumadrop One", sans-serif;
+}
+
+/* -----------------CATEGORIES---------------------- */
+#categories {
+    width: 100vw;
+    height: 200px;
+    max-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    
+    height: 100%;
+}
+
+.category-box {
+    background-color: #F8DDCC;
+    min-width: 130px;
+    width: auto;
+    height: 130px;
+    border-radius: 25px;
+
+    filter: drop-shadow(-1px 5px 5px rgba(0, 0, 0, 0.5));
 }
