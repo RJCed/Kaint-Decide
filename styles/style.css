@@ -1,0 +1,86 @@
+/* ------------------FONTS------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ------------------HEADER------------------------ */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 110px;
+    
+    background-image: linear-gradient(to right, #FFF1E8 10%, #FFD8C2 30%);
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.25);
+
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+#header-left {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+}
+
+#header-left h1{
+    font-family: "Hanalei Fill";
+    font-size: 50px;
+    color: #D97852;
+    -webkit-text-stroke: 1px #FFF1E7; 
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+#header-left img{
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+#header-right{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.search {
+    top: 17px;
+    right: 112px;
+
+    width: 556px;
+    height: 65px;
+
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+.search .vector {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 24px;
+
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+#sidebar-btn{
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+}
