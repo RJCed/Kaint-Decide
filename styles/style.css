@@ -373,6 +373,10 @@ header {
         font-size: 64px;
     }
 
+    #sidebar-btn {
+        scale: 0.85;
+    }
+
     /* sections grow with their content instead of overflowing */
     #categories,
     #recipe-gallery {
@@ -414,6 +418,10 @@ header {
     }
     #header-left img {
         height: 40px;
+    }
+
+    #sidebar-btn {
+        scale: 0.75;
     }
 
     #hero {
