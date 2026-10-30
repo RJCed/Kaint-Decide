@@ -242,6 +242,8 @@ header {
 
     width: 100%;
     margin: auto;
+
+    opacity: 75%;
 }
 .recipe-info img {
     height: auto;
