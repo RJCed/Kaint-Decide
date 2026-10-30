@@ -266,9 +266,20 @@ header {
 .recipe-name {
     font-family: "Rammetto One", sans-serif;
     font-size: 18px;
+    line-height: 1.2;
 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+
+    overflow: hidden;
     overflow-wrap: anywhere;
-    white-space: normal;
+
+    margin: 0;
+
+    min-width: 0;
+    flex: 1;
 }
 
 
