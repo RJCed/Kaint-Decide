@@ -5,3 +5,6 @@ const sidebarBtn = document.getElementById("sidebar-btn");
 sidebarBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
 });
+
+
+
