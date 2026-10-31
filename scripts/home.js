@@ -3,8 +3,11 @@
 
 const recipeImg = document.querySelectorAll(".recipe-img");
 const recipeName = document.querySelectorAll(".recipe-name");
+const categoryImg = document.querySelectorAll(".catImg");
 
 const randomRecipeURL = "https://www.themealdb.com/api/json/v1/1/random.php";
+const categoriesURL = "https://www.themealdb.com/api/json/v1/1/categories.php";
+
 
 // Get random recipe data from TheMealDB
 async function getRandomRecipe() {
@@ -41,6 +44,43 @@ async function getRandomRecipe() {
     return null;
 }
 
+// Get Categories
+async function getCategories() {
+    // Maximum amount it retry if fetch fails
+    const maxAttempts = 5;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+            const response = await fetch(categoriesURL);
+
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (!data.categories || data.categories.length === 0) {
+                throw new Error("No recipe data received.");
+            }
+
+            // console.log(data.categories);
+            return data.categories;
+
+        } catch (error) {
+            console.error(`Attempt ${attempt} failed:`, error);
+
+            if (attempt < maxAttempts) {
+                console.log("Retrying...");
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+    }
+
+    console.error("Failed to retrieve category list after max attempts.");
+    return null;
+}
+
+
 // Change Display and Recipe name in home page
 async function displayRandomRecipes() {
     for (let i = 0; i < recipeImg.length; i++) {
@@ -55,5 +95,14 @@ async function displayRandomRecipes() {
     }
 }
 
+async function displayCategories() {
+    const categories = await getCategories();
+    for (let i = 0; i < categoryImg.length; i++) {
+        categoryImg[i].src = categories[i].strCategoryThumb;
+        categoryImg[i].alt = categories[i].strCategory;
+    }
+}
+
+displayCategories();
 displayRandomRecipes();
 
