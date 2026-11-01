@@ -122,6 +122,10 @@ header {
     font-size: 104px;
 } 
 
+#hero h2 {
+    font-size: 80px;
+}
+
 #hero p {
     -webkit-text-stroke: 1px #FFE5D5; 
     font-size: 25px;
