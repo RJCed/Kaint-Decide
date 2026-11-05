@@ -5,48 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
 
 
-/* ------------------HERO------------------------- */
-#hero {
-    min-height: 310px;
-    max-height: 310px;
-
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-        url("../images/hero.jpg");
-
-    background-size: cover;
-    background-position: center 15%;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    font-family: "Hanalei Fill";
-    color: #A94F24;
-    -webkit-text-stroke: 1.5px #FFE5D5; 
-    text-shadow: 0 4px 5px rgba(169, 79, 36, 0.75);
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
-
-    padding: 100px;
-    gap: 25px;
-
-}
-
-#hero h1 {
-    font-size: 104px;
-} 
-
-#hero h2 {
-    font-size: 80px;
-}
-
-#hero p {
-    -webkit-text-stroke: 1px #FFE5D5; 
-    font-size: 25px;
-}
-
-
 /* ___________________LABEL TEXT______________________________________________ */
 
 .label-text{

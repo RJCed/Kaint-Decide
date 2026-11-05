@@ -1,0 +1,21 @@
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#search-label {
+    border: 1px solid red;
+}
+
+#search-results-box {
+    border: 1px solid red;
+
+    width: 100vw;
+    height: 200px;
+    max-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+
+}
