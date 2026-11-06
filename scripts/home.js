@@ -1,10 +1,14 @@
 // JS file for the Homepage
 
 import { getRandomRecipe, getCategories } from "./request.js";
+import { initSearch } from "./search.js";
 
 const recipeImg = document.querySelectorAll(".recipe-img");
 const recipeName = document.querySelectorAll(".recipe-name");
 const categoryImg = document.querySelectorAll(".catImg");
+
+// Initialize search
+initSearch();
 
 // Change Display and Recipe name in home page
 async function displayRandomRecipes() {

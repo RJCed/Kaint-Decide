@@ -1,6 +1,7 @@
 // JS file for the Search Results page
 
 import { searchRecipes } from "./request.js";
+import { setSearchInputValue } from "./search.js";
 
 // Get search query from URL parameters
 function getSearchQuery() {
@@ -14,6 +15,8 @@ function displaySearchQuery(query) {
     if (queryElement) {
         queryElement.textContent = query;
     }
+    // Pre-fill search input with current query
+    setSearchInputValue(query);
 }
 
 // Create recipe card HTML (consistent with home page)
