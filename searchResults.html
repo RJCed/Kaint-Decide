@@ -23,7 +23,7 @@
     </div>
 
     <!-- HEADER -->
-    
+
     <header>
         <div id="header-left">
             <img src="./images/icon.svg" alt="icon">
@@ -31,28 +31,40 @@
         </div>
 
         <div id="header-right">
-            <div class="search">
+            <form class="search" id="search-form" action="searchResults.html" method="get">
                 <img class="vector" src="./images/search.svg" alt="Search">
 
                 <input
                     type="text"
                     class="search-input"
+                    name="q"
                     placeholder="Search for cuisines and dishes"
                 >
-            </div>
+            </form>
             <img class="vector" id="sidebar-btn" src="./images/sidebar.svg" alt="sidebar-button">
         </div>
     </header>
 
     <div id="content">
         <div id="search-label">
-        <h2>Search Results for "Egg":</h2>
+            <h2>Search Results for "<span id="search-query"></span>":</h2>
         </div>
 
-        <div id="search-results-box">
-
+        <div id="search-results-container">
+            <div id="search-results-box"></div>
         </div>
     </div>
 
+<script>
+        // Pre-fill search input with current query
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get("q");
+            const searchInput = document.querySelector(".search-input");
+            if (query && searchInput) {
+                searchInput.value = query;
+            }
+        });
+    </script>
 </body>
 </html>

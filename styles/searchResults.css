@@ -1,21 +1,107 @@
 #content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    min-height: calc(100vh - 105px);
+    padding-bottom: 40px;
 }
 
 #search-label {
-    border: 1px solid red;
+    padding: 40px 100px 20px;
+    color: #A45627;
+    font-size: 24px;
+}
+
+#search-label h2 {
+    font-family: "Rammetto One", sans-serif;
+    margin: 0;
+}
+
+#search-label span {
+    font-family: "Darumadrop One", sans-serif;
+}
+
+#search-results-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
 }
 
 #search-results-box {
-    border: 1px solid red;
-
-    width: 100vw;
-    height: 200px;
-    max-height: 200px;
-
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3vw;
+    flex: 1;
+}
 
+/* No results state */
+.no-results {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    color: #A45627;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+/* Loading state */
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    color: #A45627;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+/* Error state */
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    color: #D97852;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+/* Laptops / tablets */
+@media (max-width: 1200px) {
+    #search-label {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #search-results-container {
+        padding: 0 40px 40px;
+    }
+
+    #search-results-box {
+        gap: 20px;
+    }
+}
+
+/* Phones */
+@media (max-width: 850px) {
+    #search-label {
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 30px;
+    }
+
+    #search-results-container {
+        padding: 0 20px 30px;
+    }
+
+    #search-results-box {
+        gap: 20px;
+    }
 }
