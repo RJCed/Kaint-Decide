@@ -17,8 +17,15 @@ async function displayRandomRecipes() {
 
         if (!recipe) continue;
 
-        recipeImg[i].src = recipe.strMealThumb;
+        // Set placeholder first, then load actual image (matches searchResults.js pattern)
+        recipeImg[i].src = "./images/placeholder.jpg";
         recipeImg[i].alt = recipe.strMeal;
+        recipeImg[i].dataset.src = recipe.strMealThumb;
+
+        recipeImg[i].addEventListener("load", () => {
+            recipeImg[i].classList.add("loaded");
+        });
+        recipeImg[i].src = recipe.strMealThumb;
 
         recipeName[i].textContent = recipe.strMeal;
     }
