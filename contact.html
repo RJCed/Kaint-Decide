@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="icon" type="image/x-icon" href="./images/icon.svg">
+    <title>About</title>
+    <script src="./scripts/script.js" defer></script>
+    <script type="module" src="./scripts/search.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+        <ul id="sidebarLinks">
+            <li id="home"><a href="index.html">Home</a></li>
+            <li id="categoryBtn"><a href="#">Categories</a></li>
+            <li id="bookmark"><a href="#">Bookmarks</a></li>
+            <li id="about"><a href="about.html">About</a></li>
+            <li id="contacts"><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- HEADER -->
+    
+    <header>
+        <div id="header-left">
+            <img src="./images/icon.svg" alt="icon">
+            <h1>Kain't Decide</h1>
+        </div>
+
+        <div id="header-right">
+            <div class="search">
+                <img class="vector" src="./images/search.svg" alt="Search">
+
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search for cuisines and dishes"
+                >
+            </div>
+            <img class="vector" id="sidebar-btn" src="./images/sidebar.svg" alt="sidebar-button">
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div id="hero">
+        <h2>CONTACT US</h2>
+        <p>Have a question, a recipe idea, or feedback? <br>Send us a message and we'll get back to you.</p>
+    </div>
+    </section>
+
+    <!-- FORM + CONTACT INFO -->
+    <section class="c-main">
+
+        <!-- Message form -->
+        <div class="c-form">
+            <h4 class="c-heading">Send us a message</h2>
+
+        <form action="#" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="c-btn">Send message</button>
+        </form>
+        </div>
+
+        <!-- Other ways to reach us -->
+        <div class="c-info">
+            <h4 class="c-heading">Other ways to reach us</h2>
+
+        <article class="c-card">
+            <div class="c-card__icon"></div>
+            <div class="c-card__body">
+                <h3 class="c-card__title">Email:</h3>
+                <ul>
+                <li>arjaycedigo@gmail.com</li>
+                <li>cscantero@up.edu.ph</li>
+            </ul>
+            </div>
+        </article>
+
+        <article class="c-card">
+          <div class="c-card__icon"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">LinkedIn:</h3>
+            <ul>
+              <li>Arjay Cedigo</li>
+              <li>Crystal Cantero</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="c-card">
+          <div class="c-card__icon"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">GitHub:</h3>
+            <ul>
+              <li>RJCed</li>
+              <li>crystalcantero</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+</body>
+</html>
