@@ -165,6 +165,44 @@ header {
 }
 
 
+/* ------------------HERO------------------------- */
+#hero {
+    min-height: 310px;
+    max-height: 310px;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center 15%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-family: "Hanalei Fill";
+    color: #A94F24;
+    -webkit-text-stroke: 1.5px #FFE5D5;
+    text-shadow: 0 4px 5px rgba(169, 79, 36, 0.75);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+
+    padding: 100px;
+    gap: 25px;
+
+}
+
+#hero h1 {
+    font-size: 104px;
+}
+
+#hero p {
+    -webkit-text-stroke: 1px #FFE5D5;
+    font-size: 25px;
+}
+
+
 /* -------------- RECIPE CARD CONTENT ------------------ */
 
 .recipe-box {
@@ -354,6 +392,21 @@ header {
     #sidebar-btn {
         scale: 0.85;
     }
+
+    /* hero + label-text responsive */
+    .label-text {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #hero {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #hero h1 {
+        font-size: 64px;
+    }
 }
 
 /* Phones */
@@ -380,7 +433,7 @@ header {
     #header-left h1 {
         font-size: 36px;
         margin-right: 0;
-        
+
     }
     #header-left img {
         height: 40px;
@@ -388,5 +441,29 @@ header {
 
     #sidebar-btn {
         scale: 0.75;
+    }
+
+    /* hero + label-text responsive */
+    .label-text {
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #hero {
+        min-height: 220px;
+        max-height: none;
+        padding: 30px 20px;
+        gap: 15px;
+
+        background-image:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url("../images/hero.jpg");
+    }
+    #hero h1 {
+        font-size: 40px;
+    }
+    #hero p {
+        font-size: 18px;
     }
 }
