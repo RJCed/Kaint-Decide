@@ -1,14 +1,12 @@
 // JS file for the Homepage
 
 import { getRandomRecipe, getCategories } from "./request.js";
-import { initSearch } from "./search.js";
+import { initBookmarkButtonStates } from "./bookmarkUI.js";
 
 const recipeImg = document.querySelectorAll(".recipe-img");
 const recipeName = document.querySelectorAll(".recipe-name");
 const categoryImg = document.querySelectorAll(".catImg");
-
-// Initialize search
-initSearch();
+const recipeBoxes = document.querySelectorAll(".recipe-box");
 
 // Change Display and Recipe name in home page
 async function displayRandomRecipes() {
@@ -28,7 +26,17 @@ async function displayRandomRecipes() {
         recipeImg[i].src = recipe.strMealThumb;
 
         recipeName[i].textContent = recipe.strMeal;
+
+        // Update recipe box data attributes for bookmark functionality
+        if (recipeBoxes[i]) {
+            recipeBoxes[i].dataset.recipeId = recipe.idMeal;
+            recipeBoxes[i].dataset.category = recipe.strCategory || "";
+            recipeBoxes[i].dataset.area = recipe.strArea || "";
+        }
     }
+
+    // Initialize bookmark button states after recipes are loaded
+    initBookmarkButtonStates();
 }
 
 async function displayCategories() {

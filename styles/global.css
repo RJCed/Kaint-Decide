@@ -321,7 +321,7 @@ header {
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
 .bookmark-btn svg {
@@ -341,11 +341,17 @@ header {
 
 /* Bookmarked state */
 .bookmark-btn[aria-pressed="true"] {
-    color: #D97852;
+    background-color: #D97852;
+    color: #FFF1E7;
 }
 
 .bookmark-btn[aria-pressed="true"] svg {
     fill: currentColor;
+    stroke: currentColor;
+}
+
+.bookmark-btn[aria-pressed="true"]:hover {
+    background-color: #C46A47;
 }
 
 /* Keyboard accessibility */

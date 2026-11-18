@@ -83,3 +83,6 @@ export function getSearchInputValue() {
     const input = document.querySelector(".search-input");
     return input?.value?.trim() || "";
 }
+
+// Auto-initialize search on all pages that import this module
+initSearch();
