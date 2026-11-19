@@ -1,0 +1,134 @@
+/* ===== CATEGORIES PAGE ===== */
+
+#categories-section {
+    padding: 60px 100px 40px;
+    min-height: calc(100vh - 105px);
+}
+
+#categories-section .label-text {
+    padding: 0 0 10px;
+    border-bottom: 2px solid #E49667;
+    margin-bottom: 30px;
+}
+
+#categories-section .label-text h2 {
+    font-family: "Rammetto One", sans-serif;
+    color: #A45627;
+}
+
+#categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3vw;
+}
+
+/* -----------------CATEGORY CARD---------------------- */
+.category-card {
+    background-color: #F8DDCC;
+    width: 220px;
+
+    padding: 12px;
+    padding-bottom: 16px;
+    border-radius: 25px;
+    filter: drop-shadow(-1px 5px 5px rgba(0, 0, 0, 0.5));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-card-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #FCC09D;
+}
+
+.category-card-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card-name {
+    font-family: "Rammetto One", sans-serif;
+    font-size: 20px;
+    color: #A45627;
+    text-align: center;
+    margin: 0;
+}
+
+/* Loading / error states */
+.loading,
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+.loading {
+    color: #A45627;
+}
+
+.error {
+    color: #D97852;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Laptops / tablets */
+@media (max-width: 1200px) {
+    #categories-section {
+        padding: 30px 40px;
+    }
+
+    #categories-container {
+        gap: 20px;
+        padding: 20px 0 40px;
+    }
+}
+
+/* Phones */
+@media (max-width: 850px) {
+    #categories-section {
+        padding: 20px;
+    }
+
+    #categories-container {
+        gap: 15px;
+        padding: 15px 0 30px;
+    }
+
+    .category-card {
+        width: 150px;
+        padding: 8px;
+        padding-bottom: 12px;
+        gap: 8px;
+        border-radius: 20px;
+    }
+
+    .category-card-img {
+        border-radius: 14px;
+    }
+
+    .category-card-name {
+        font-size: 15px;
+    }
+
+    .loading,
+    .error {
+        min-height: 250px;
+        font-size: 1rem;
+    }
+}
