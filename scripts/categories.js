@@ -23,20 +23,23 @@ function showError() {
 }
 
 /**
- * Create a single category card
+ * Create a single category card (links to the category's recipes
+ * on the search results page)
  * @param {Object} category - Category object from TheMealDB (strCategory, strCategoryThumb, ...)
- * @returns {HTMLElement} Article element with the category card
+ * @returns {HTMLElement} Anchor element with the category card
  */
 function createCategoryCard(category) {
-    const card = document.createElement("article");
+    const card = document.createElement("a");
     card.className = "category-card";
+    card.href = `searchResults.html?c=${encodeURIComponent(category.strCategory)}`;
     card.dataset.category = category.strCategory;
+    card.setAttribute("aria-label", `View ${category.strCategory} recipes`);
 
     card.innerHTML = `
         <span class="category-card-img">
             <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
         </span>
-        <h3 class="category-card-name">${category.strCategory}</h3>
+        <span class="category-card-name">${category.strCategory}</span>
     `;
 
     return card;

@@ -48,6 +48,7 @@
 }
 
 .category-box {
+    display: block;
     background-color: #F8DDCC;
     min-width: 130px;
     max-width: 130px;
@@ -56,6 +57,12 @@
     border-radius: 25px;
     overflow: hidden;
     filter: drop-shadow(-1px 5px 5px rgba(0, 0, 0, 0.5));
+
+    transition: transform 0.15s ease-in-out;
+}
+
+.category-box:hover {
+    transform: scale(1.08);
 }
 
 .category-box img {

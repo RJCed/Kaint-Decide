@@ -92,9 +92,18 @@ async function displayGalleryRecipes() {
 
 async function displayCategories() {
     const categories = await getCategories();
-    for (let i = 0; i < categoryImg.length; i++) {
-        categoryImg[i].src = categories[i].strCategoryThumb;
-        categoryImg[i].alt = categories[i].strCategory;
+    if (!categories) return;
+
+    for (let i = 0; i < categoryImg.length && i < categories.length; i++) {
+        const category = categories[i];
+        categoryImg[i].src = category.strCategoryThumb;
+        categoryImg[i].alt = category.strCategory;
+
+        // make the whole box link to that category's recipes
+        const box = categoryImg[i].closest(".category-box");
+        if (box) {
+            box.href = `searchResults.html?c=${encodeURIComponent(category.strCategory)}`;
+        }
     }
 }
 
