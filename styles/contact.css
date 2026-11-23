@@ -1,175 +1,289 @@
-/* ===== Variables ===== */
-:root {
-  --ink: #3b1a0d;
-  --rust: #a8481f;
-  --rust-dark: #8a3a16;
-  --terracotta: #e07b5a;
-  --peach: #fcbd9b;
-  --cream: #fff4ee;
-  --circle: #f2b9a0;
+/* ------------------ CONTACT PAGE ------------------ */
 
-  --font-display: "Rubik Dirt", "Impact", sans-serif;
-  --font-script: "Playball", cursive;
-  --font-body: "Handlee", "Comic Sans MS", cursive;
+.c-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 40px 0px;
 }
 
-/* ===== Reset leaked styles ===== */
-.c-main.c-main * {
-  box-sizing: border-box;
-  text-shadow: none;
-  -webkit-text-stroke: 0;
+.c-heading {
+    margin: 0 0 25px;
+    font-family: "Hanalei Fill", cursive;
+    font-weight: 400;
+    font-size: clamp(36px, 4.5vw, 52px);
+    line-height: 1.1;
+    color: #A94F24;
+    -webkit-text-stroke: 1px #FFE5D5;
+    text-shadow: 0 3px 4px rgba(169, 79, 36, 0.5);
 }
 
-/* ===== HERO TEXT (moved down into the pizza photo) ===== */
-section h1,
-section h1 + p {
-  translate: 0 30px;
+/* Shared card look (matches the About "feature" cards) */
+.c-card {
+    background-color: #F8DDCC;
+    border-radius: 25px;
+    filter: drop-shadow(-1px 5px 5px rgba(0, 0, 0, 0.5));
 }
 
-.c-hero .c-hero__image {
-  display: none;
+/* ----- Form card ----- */
+.c-form {
+    padding: 30px 30px 35px;
 }
 
-/* ===== MAIN (form + info) ===== */
-.c-main.c-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  min-height: 0;
-  margin: 5px 0 0;
-  padding: 2.5rem max(2rem, calc((100% - 900px) / 2)) 4rem;
-  background: transparent;
-  box-shadow: none;
+.c-form label {
+    display: block;
+    margin: 0 0 6px 4px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #60412F;
 }
- 
-.c-main .c-heading {
-  margin: 0 0 1rem;
-  font-family: var(--font-script);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  line-height: 1.2;
-  color: var(--rust);
-  text-transform: none;
+
+.c-optional {
+    font-weight: 400;
+    font-size: 13px;
+    color: #A45627;
 }
- 
-/* ----- Form ----- */
-.c-main .c-form label {
-  display: block;
-  margin: 0 0 2px 6px;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--ink);
-  text-transform: none;
+
+.c-form input,
+.c-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    color: #60412F;
+    background: #FFF1E8;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
- 
-.c-main .c-form input,
-.c-main .c-form textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.8rem;
-  padding: 0.5rem 0.7rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  background: var(--cream);
-  border: 1px solid var(--rust);
-  border-radius: 8px;
+
+.c-form textarea {
+    min-height: 130px;
+    resize: vertical;
 }
- 
-.c-main .c-form input {
-  height: 2.2rem;
+
+.c-form input::placeholder,
+.c-form textarea::placeholder {
+    color: #b09a8d;
 }
- 
-.c-main .c-form textarea {
-  min-height: 5.5rem;
-  resize: vertical;
+
+.c-form input:focus,
+.c-form textarea:focus {
+    outline: none;
+    border-color: #D97852;
+    box-shadow: 0 0 0 3px rgba(217, 120, 82, 0.25);
 }
- 
-.c-main .c-form input:focus,
-.c-main .c-form textarea:focus {
-  outline: 2px solid var(--terracotta);
-  outline-offset: 2px;
+
+.c-form input.invalid,
+.c-form textarea.invalid {
+    border-color: #b3261e;
 }
- 
-.c-main .c-btn {
-  padding: 0.5rem 1.2rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--cream);
-  text-transform: none;
-  background: var(--rust);
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
+
+.c-error {
+    margin: -6px 0 12px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #b3261e;
 }
- 
-.c-main .c-btn:hover {
-  background: var(--rust-dark);
+
+.c-btn {
+    padding: 12px 28px;
+    font-family: "Rammetto One", sans-serif;
+    font-size: 17px;
+    color: #FFF1E7;
+    background: #D97852;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.15s ease, background 0.15s ease;
 }
- 
+
+.c-btn:hover {
+    background: #C46A47;
+    transform: scale(1.05);
+}
+
+.c-btn:active {
+    transform: scale(0.97);
+}
+
+.c-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+/* Success message */
+.c-success {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: #FFF1E8;
+    border: 2px solid #D97852;
+    border-radius: 12px;
+    animation: c-pop 0.3s ease;
+}
+
+.c-success svg {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    fill: #D97852;
+}
+
+.c-success p {
+    margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #60412F;
+}
+
+@keyframes c-pop {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ----- Info cards ----- */
-.c-main .c-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.4rem;
-  padding: 0.9rem 1rem;
-  background: var(--cream);
-  border: 1px solid var(--rust);
-  border-radius: 8px;
+.c-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
- 
-.c-main .c-card__icon {
-  flex: none;
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--circle);
-  overflow: hidden;
+
+.c-info .c-heading {
+    margin-bottom: 5px;
 }
- 
-.c-main .c-card__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+.c-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 24px;
+    color: inherit;
+    transition: transform 0.15s ease-in-out;
 }
- 
-.c-main .c-card__title {
-  margin: 0 0 0.2rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 0.95rem;
-  color: var(--rust);
-  text-transform: none;
+
+.c-link:hover {
+    transform: scale(1.03);
 }
- 
-.c-main .c-card__body ul {
-  margin: 0;
-  padding: 0 0 0 1.4rem;
-  list-style: none;
+
+.c-card__icon {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: #FCC09D;
+    border-radius: 50%;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
 }
- 
-.c-main .c-card__body li {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  line-height: 1.3;
-  color: var(--ink);
-  text-transform: none;
+
+.c-card__icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #A45627;
 }
- 
-/* ===== Responsive ===== */
-@media (max-width: 800px) {
-  .c-main.c-main {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+
+.c-card__title {
+    margin: 0 0 6px;
+    font-family: "Rammetto One", sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: #A45627;
 }
- 
-@media (max-width: 650px) {
-  .c-hero .c-hero__text {
-    padding: 1rem 1.2rem;
-  }
+
+.c-card__body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.c-card__body li {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #60412F;
+    overflow-wrap: anywhere;
+}
+
+.c-card__body li a {
+    color: #A45627;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.c-card__body li a:hover {
+    color: #D97852;
+    border-bottom-color: #D97852;
+}
+
+.c-card__body li a:focus-visible {
+    outline: 2px solid #A94F24;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+/* Laptops / tablets */
+@media (max-width: 1000px) {
+    .c-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 35px 40px 70px;
+    }
+}
+
+/* Phones */
+@media (max-width: 850px) {
+    .c-main {
+        padding: 25px 20px 50px;
+    }
+
+    .c-form {
+        padding: 22px 20px 26px;
+    }
+
+    .c-heading {
+        font-size: 34px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 520px) {
+    .c-link {
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .c-card__icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .c-card__icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .c-card__title {
+        font-size: 17px;
+    }
+
+    .c-card__body li {
+        font-size: 14px;
+    }
 }
