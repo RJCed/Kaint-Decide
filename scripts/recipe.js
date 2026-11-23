@@ -125,42 +125,40 @@ function renderRecipe(meal) {
 
     content.innerHTML = `
         <article class="recipe-detail" data-recipe-id="${escapeHtml(meal.idMeal)}">
-            <div class="recipe-detail__top">
-                <div class="recipe-image recipe-detail__image">
-                    <img class="recipe-img loaded"
-                        src="${escapeHtml(meal.strMealThumb)}"
-                        alt="${escapeHtml(meal.strMeal)}">
-                    <button
-                        class="bookmark-btn"
-                        type="button"
-                        aria-label="Bookmark recipe"
-                        aria-pressed="false"
-                    >
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.8l2.8 5.7 6.3.9-4.55 4.43
-                                    1.07 6.25L12 17.1l-5.62 2.95
-                                    1.07-6.25L2.9 9.4l6.3-.9L12 2.8z"/>
-                        </svg>
-                    </button>
-                </div>
+            <div class="recipe-image recipe-detail__image">
+                <img class="recipe-img loaded"
+                    src="${escapeHtml(meal.strMealThumb)}"
+                    alt="${escapeHtml(meal.strMeal)}">
+                <button
+                    class="bookmark-btn"
+                    type="button"
+                    aria-label="Bookmark recipe"
+                    aria-pressed="false"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2.8l2.8 5.7 6.3.9-4.55 4.43
+                                1.07 6.25L12 17.1l-5.62 2.95
+                                1.07-6.25L2.9 9.4l6.3-.9L12 2.8z"/>
+                    </svg>
+                </button>
+            </div>
 
-                <div class="recipe-detail__meta">
-                    <h1 class="recipe-detail__title">${escapeHtml(meal.strMeal)}</h1>
-                    <div class="recipe-detail__tags">
-                        ${categoryLink
-                            ? `<a class="recipe-detail__category" href="${categoryLink}">${escapeHtml(meal.strCategory)}</a>`
-                            : ""}
-                        ${areaText
-                            ? `<span class="recipe-detail__area">${escapeHtml(areaText)}</span>`
-                            : ""}
-                    </div>
-
-                    <section class="recipe-panel recipe-detail__ingredients">
-                        <h2 class="panel-title">Ingredients</h2>
-                        ${ingredientsHtml}
-                    </section>
+            <div class="recipe-detail__meta">
+                <h1 class="recipe-detail__title">${escapeHtml(meal.strMeal)}</h1>
+                <div class="recipe-detail__tags">
+                    ${categoryLink
+                        ? `<a class="recipe-detail__category" href="${categoryLink}">${escapeHtml(meal.strCategory)}</a>`
+                        : ""}
+                    ${areaText
+                        ? `<span class="recipe-detail__area">${escapeHtml(areaText)}</span>`
+                        : ""}
                 </div>
             </div>
+
+            <section class="recipe-panel recipe-detail__ingredients">
+                <h2 class="panel-title">Ingredients</h2>
+                ${ingredientsHtml}
+            </section>
 
             <section class="recipe-panel recipe-detail__instructions">
                 <h2 class="panel-title">Instructions</h2>
