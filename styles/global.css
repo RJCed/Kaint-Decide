@@ -220,6 +220,19 @@ header {
 
     display: flex;
     flex-direction: column;
+
+    /* cards are clickable links to the recipe page */
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out;
+}
+
+.recipe-box:hover {
+    transform: scale(1.04);
+}
+
+.recipe-box:focus-visible {
+    outline: 3px solid #A94F24;
+    outline-offset: 3px;
 }
 
 /* Recipe image container */

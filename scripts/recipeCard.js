@@ -17,6 +17,11 @@ export function createRecipeCard(meal) {
     article.dataset.category = meal.strCategory || "";
     article.dataset.area = meal.strArea || "";
 
+    // Clicking the card opens the recipe page (handled globally in script.js)
+    article.setAttribute("tabindex", "0");
+    article.setAttribute("role", "link");
+    article.setAttribute("aria-label", `View recipe: ${meal.strMeal}`);
+
     article.innerHTML = `
         <div class="recipe-image">
             <img class="recipe-img"

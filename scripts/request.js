@@ -1,4 +1,5 @@
 const randomRecipeURL = "https://www.themealdb.com/api/json/v1/1/random.php";
+const lookupByIdURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 const categoriesURL = "https://www.themealdb.com/api/json/v1/1/categories.php";
 const searchURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 const filterByCategoryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
@@ -21,6 +22,42 @@ export async function getRandomRecipe() {
 
             if (!data.meals || data.meals.length === 0) {
                 throw new Error("No recipe data received.");
+            }
+
+            return data.meals[0];
+
+        } catch (error) {
+            console.error(`Attempt ${attempt} failed:`, error);
+
+            if (attempt < maxAttempts) {
+                console.log("Retrying...");
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+    }
+
+    console.error("Failed to retrieve recipe after max attempts.");
+    return null;
+}
+
+// Get a full recipe by its ID (idMeal) - includes instructions, ingredients, measures
+export async function getRecipeById(id) {
+    // Maximum amount it retry if fetch fails
+    const maxAttempts = 5;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+            const response = await fetch(`${lookupByIdURL}${encodeURIComponent(id)}`);
+
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // lookup returns {"meals": null} when the id does not exist
+            if (!data.meals || data.meals.length === 0) {
+                return null;
             }
 
             return data.meals[0];
