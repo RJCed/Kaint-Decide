@@ -70,8 +70,10 @@
     gap: 14px;
 }
 
-/* Category pill - links to that category's results page */
-.recipe-detail__category {
+/* Category + area/country pills - both link to their results page
+   (?c= category, ?a= country) and share the same filled-pill style */
+.recipe-detail__category,
+.recipe-detail__area {
     font-family: "Darumadrop One", sans-serif;
     font-size: 18px;
     color: #FFF1E7;
@@ -84,20 +86,16 @@
     transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-.recipe-detail__category:hover {
+.recipe-detail__category:hover,
+.recipe-detail__area:hover {
     transform: scale(1.06);
     background-color: #C46A47;
 }
 
-/* Area / country chip */
-.recipe-detail__area {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 18px;
-    color: #A45627;
-
-    padding: 6px 20px;
-    border: 2px solid #E49667;
-    border-radius: 999px;
+.recipe-detail__category:focus-visible,
+.recipe-detail__area:focus-visible {
+    outline: 3px solid #A94F24;
+    outline-offset: 3px;
 }
 
 /* ------------------INGREDIENTS + INSTRUCTIONS---------------------- */

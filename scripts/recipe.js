@@ -86,6 +86,12 @@ function renderRecipe(meal) {
         ? `searchResults.html?c=${encodeURIComponent(meal.strCategory)}`
         : null;
 
+    // The area filter expects the country name (strCountry, e.g. "Turkey"),
+    // falling back to the strArea adjective (e.g. "Turkish") if missing.
+    const areaLink = (meal.strCountry || meal.strArea)
+        ? `searchResults.html?a=${encodeURIComponent(meal.strCountry || meal.strArea)}`
+        : null;
+
     const areaText = [meal.strArea, meal.strCountry]
         .filter((part) => part && String(part).trim())
         .join(" · ");
@@ -149,8 +155,8 @@ function renderRecipe(meal) {
                     ${categoryLink
                         ? `<a class="recipe-detail__category" href="${categoryLink}">${escapeHtml(meal.strCategory)}</a>`
                         : ""}
-                    ${areaText
-                        ? `<span class="recipe-detail__area">${escapeHtml(areaText)}</span>`
+                    ${areaLink
+                        ? `<a class="recipe-detail__area" href="${areaLink}">${escapeHtml(areaText)}</a>`
                         : ""}
                 </div>
             </div>

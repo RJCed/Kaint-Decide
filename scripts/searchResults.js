@@ -1,18 +1,20 @@
 // JS file for the Search Results page
-// Handles two modes via URL parameters:
+// Handles three modes via URL parameters:
 //   searchResults.html?q=...  -> search recipes by name
 //   searchResults.html?c=...  -> show all recipes of a category
+//   searchResults.html?a=...  -> show all recipes of a country/cuisine
 
-import { searchRecipes, getRecipesByCategory } from "./request.js";
+import { searchRecipes, getRecipesByCategory, getRecipesByArea } from "./request.js";
 import { setSearchInputValue } from "./search.js";
 import { renderRecipeCards } from "./recipeCard.js";
 
-// Get URL parameters: ?q= search query, ?c= category
+// Get URL parameters: ?q= search query, ?c= category, ?a= country (area)
 function getParams() {
     const params = new URLSearchParams(window.location.search);
     return {
         query: params.get("q") || "",
         category: params.get("c") || "",
+        area: params.get("a") || "",
     };
 }
 
@@ -69,9 +71,9 @@ function showError(message) {
     `;
 }
 
-// Initialize search results page (handles both ?q= search and ?c= category)
+// Initialize search results page (handles ?q= search, ?c= category and ?a= country)
 async function initSearchResults() {
-    const { query, category } = getParams();
+    const { query, category, area } = getParams();
 
     // Category mode: show all recipes of that category
     if (category) {
@@ -85,6 +87,24 @@ async function initSearchResults() {
             showError(`Failed to load ${category} recipes. Please try again.`);
         } else {
             displayResults(meals, category, "No recipes found in this category.");
+        }
+        return;
+    }
+
+    // Country/cuisine mode: show all recipes from that country (?a=Turkey, ?a=Argentina, ...)
+    if (area) {
+        displayHeading("Recipes from", area);
+        document.title = `${area} - Kain't Decide?`;
+        showLoading(`Loading ${area} recipes...`);
+
+        const meals = await getRecipesByArea(area);
+
+        if (meals === null) {
+            showError(`Failed to load ${area} recipes. Please try again.`);
+        } else {
+            // filter.php?a= results already include strArea/strCountry per meal,
+            // so createRecipeCard tags each card's data-area automatically.
+            displayResults(meals, "", `No recipes found from ${area}.`);
         }
         return;
     }
